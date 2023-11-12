@@ -1,8 +1,12 @@
 import Image from "next/image";
 
+
+
 export default function DisplayImage() {
     return (
       <>
+      
+     
        
          
               <div>
@@ -12,7 +16,7 @@ export default function DisplayImage() {
                   <Image src={"/images/image18.jpg"} alt="Banner image"  width={300} height={100}/>
               </div>
               <div>
-                  <Image src={"/images/image19.jpg"} alt="Banner image" width={300} height={100} />
+                  <Image src={"/images/image22.jpg"} alt="Banner image" width={300} height={100} />
               </div>
               <div>
                   <Image src={"/images/image20.jpg"} alt="Banner image" width={300} height={100} />

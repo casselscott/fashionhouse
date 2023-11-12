@@ -3,6 +3,7 @@ import React from 'react';
 
 export default function ProductItem({ product }) {
   return (
+  
     <div className="card">
       <Link href={`/product/${product.slug}`} legacyBehavior>
 
@@ -21,10 +22,11 @@ export default function ProductItem({ product }) {
         </Link>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
-        <button className="primary-button" type="button">
+        <button className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full" type="button">
           Add to cart
         </button>
       </div>
     </div>
+    
   );
 }

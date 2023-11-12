@@ -25,6 +25,18 @@ const data = [
         name: '',
         image: '/images/image13.jpg',
     },
+    {
+      name: '',
+      image: '/images/image23.jpg',
+  },
+  {
+    name: '',
+    image: '/images/image24.jpg',
+},
+{
+  name: '',
+  image: '/images/image25.jpg',
+},
     
 ];
 
