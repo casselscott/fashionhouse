@@ -1,4 +1,20 @@
+import bcrypt from 'bcryptjs';
+
 const data = {
+  users: [
+    {
+      name: 'Devon',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'Sarah',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('654321'),
+      isAdmin: false,
+    },
+  ],
     products: [
       {
         name: 'Two-Piece Suit',
@@ -51,8 +67,8 @@ const data = {
         description: 'Black bodycon mid dress',
       },
       {
-        name: 'Two-piece lounge wear',
-        slug: 'two-piece-lounge-wear',
+        name: 'Lounge wear',
+        slug: 'lounge-wear',
         category: 'Co-ords',
         image: '/images/image7.jpg',
         price: 55,

@@ -45,7 +45,7 @@ export default function ProductCarousel() {
     <Carousel showArrows={true} autoPlay={true} interval={3000} infiniteLoop={true} showThumbs={false}>
      
       {data.map((product, index) => (
-        <div key={index} className="carousel-item">
+        <div key={index} className="carousel-items">
           <img src={product.image} alt={product.name} />
           <p className="legend">{product.name}</p>
         </div>
