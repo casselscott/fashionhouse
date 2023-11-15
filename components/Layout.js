@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
-import { Store } from '../utils/Store';;
+import { Store } from '../utils/Store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { signOut, useSession } from 'next-auth/react';
@@ -10,11 +10,8 @@ import { Menu } from '@headlessui/react';
 import DropdownLink from './DropdownLink';
 import Image from 'next/image';
 
-
-
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
-
 
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
@@ -27,8 +24,7 @@ export default function Layout({ title, children }) {
     dispatch({ type: 'CART_RESET' });
     signOut({ callbackUrl: '/login' });
   };
-    
-    
+
   return (
     <>
       <Head>
@@ -41,16 +37,20 @@ export default function Layout({ title, children }) {
       <div className="flex min-h-screen flex-col justify-between ">
         <header>
           <nav className="flex h-12 items-center px-4 justify-between shadow-md bg-gray-900 text-white font-bold">
-            
-            <div className='flex items-center'>
-            <Link href="/" legacyBehavior>
-            <a className="flex items-center">
-            <img src='/images/logo.jpg' alt='logo' width={45} height={40} />
-            <span className="ml-2 text-lg font-bold">Fashion House</span>
-            </a>
-           </Link>
+            <div className="flex items-center">
+              <Link href="/" legacyBehavior>
+                <a className="flex items-center">
+                  <img
+                    src="/images/logo.jpg"
+                    alt="logo"
+                    width={45}
+                    height={40}
+                  />
+                  <span className="ml-2 text-lg font-bold">Fashion House</span>
+                </a>
+              </Link>
             </div>
-           
+
             <div>
               <Link href="/cart" legacyBehavior>
                 <a className="p-2">
@@ -65,35 +65,38 @@ export default function Layout({ title, children }) {
               {status === 'loading' ? (
                 'Loading'
               ) : session?.user ? (
-                <Menu as="div" className="relative inline-block bg-gray-900 text-white font-bold">
-                <Menu.Button className="min-w-fit">
-                  {session.user.name}
-                </Menu.Button>
-                <Menu.Items className="absolute right-0 w-40 origin-top-right shadow-lg bg-gray-900 text-white font-bold ">
-                  <Menu.Item>
-                    <DropdownLink className="dropdown-link" href="/profile">
-                      Profile
-                    </DropdownLink>
-                  </Menu.Item>
-                  <Menu.Item>
-                    <DropdownLink
-                      className="dropdown-link"
-                      href="/order-history"
-                    >
-                      Order History
-                    </DropdownLink>
-                  </Menu.Item>
-                  <Menu.Item>
-                    <a
-                      className="dropdown-link"
-                      href="#"
-                      onClick={logoutClickHandler}
-                    >
-                      Logout
-                    </a>
-                  </Menu.Item>
-                </Menu.Items>
-              </Menu>
+                <Menu
+                  as="div"
+                  className="relative inline-block bg-gray-900 text-white font-bold"
+                >
+                  <Menu.Button className="min-w-fit">
+                    {session.user.name}
+                  </Menu.Button>
+                  <Menu.Items className="absolute right-0 w-40 origin-top-right shadow-lg bg-gray-900 text-white font-bold ">
+                    <Menu.Item>
+                      <DropdownLink className="dropdown-link" href="/profile">
+                        Profile
+                      </DropdownLink>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <DropdownLink
+                        className="dropdown-link"
+                        href="/order-history"
+                      >
+                        Order History
+                      </DropdownLink>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <a
+                        className="dropdown-link"
+                        href="#"
+                        onClick={logoutClickHandler}
+                      >
+                        Logout
+                      </a>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Menu>
               ) : (
                 <Link href="/login" legacyBehavior>
                   <a className="p-2">Login</a>
@@ -107,6 +110,6 @@ export default function Layout({ title, children }) {
           <p>Copyright © 2023 Fashion House</p>
         </footer>
       </div>
-      </>
+    </>
   );
 }
