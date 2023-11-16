@@ -50,7 +50,12 @@ export default function ProductCarousel() {
     >
       {data.map((product, index) => (
         <div key={index} className="carousel-items">
-          <img src={product.image} alt={product.name} />
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={500}
+            height={300}
+          />
           <p className="legend">{product.name}</p>
         </div>
       ))}

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import Layout from '../components/Layout';
 import React, { useEffect } from 'react';
@@ -7,6 +6,7 @@ import { signIn, useSession } from 'next-auth/react';
 import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -42,7 +42,7 @@ export default function LoginScreen() {
     <Layout title="login">
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
         <div className="hidden sm:block">
-          <img
+          <Image
             className="w-full h-full object-cover m-0 p-0"
             src="/images/image41.jpg"
             alt="image"
@@ -101,7 +101,7 @@ export default function LoginScreen() {
                         message: 'password is more than 5 chars',
                       },
                     })}
-                    className="rounded-lg text-white font-bold  text-gray-500 font-bold"
+                    className="rounded-lg  text-gray-500 font-bold"
                     id="password"
                     autoFocus
                   ></input>

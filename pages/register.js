@@ -7,6 +7,7 @@ import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Image from 'next/image';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -50,7 +51,7 @@ export default function LoginScreen() {
     <Layout title="Create Account">
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
         <div className="hidden sm:block">
-          <img
+          <Image
             className="w-full h-full object-cover m-0 p-0"
             src="/images/image37.jpg"
             alt="image"
@@ -58,7 +59,7 @@ export default function LoginScreen() {
         </div>
 
         <form
-          className="mx-auto max-w-screen-md max-w-[500px] justify-center object-cover h-full w-full mx-auto bg-gray-900 p-8 px-8 rounded-lg "
+          className=" max-w-[500px] justify-center object-cover h-full w-full mx-auto bg-gray-900 p-8 px-8 rounded-lg "
           onSubmit={handleSubmit(submitHandler)}
         >
           <h1 className="mb-4 text-xl text-white font-bold">Create Account</h1>

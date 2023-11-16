@@ -1,17 +1,14 @@
 import ProductCarousel from '@/components/Carousel';
 import Layout from '../components/Layout';
 import ProductItem from '../components/ProductItem';
-import { Carousel } from 'react-responsive-carousel';
 import DisplayImage from '@/components/DisplayImage';
-import ImageLayout from '@/components/ImageLayout'
+import ImageLayout from '@/components/ImageLayout';
 import axios from 'axios';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import Product from '../models/Product';
 import db from '../utils/db';
 import { Store } from '../utils/Store';
-
-
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
@@ -30,19 +27,17 @@ export default function Home({ products }) {
     toast.success('Product added to the cart');
   };
   return (
-   
-  
     <Layout title="">
       <br></br>
       <ProductCarousel></ProductCarousel>
       <br></br>
-      <div className=''>
-      <ImageLayout></ImageLayout>
-    </div>
-     
+      <div className="">
+        <ImageLayout></ImageLayout>
+      </div>
+
       <br></br>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
-      {products.map((product) => (
+        {products.map((product) => (
           <ProductItem
             product={product}
             key={product.slug}
@@ -50,13 +45,10 @@ export default function Home({ products }) {
           ></ProductItem>
         ))}
       </div>
-      <div className='grid grid-flow-col auto-cols-max'>
+      <div className="grid grid-flow-col auto-cols-max">
         <DisplayImage></DisplayImage>
       </div>
-      
-      
     </Layout>
-  
   );
 }
 
@@ -69,4 +61,3 @@ export async function getServerSideProps() {
     },
   };
 }
-

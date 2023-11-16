@@ -13,9 +13,8 @@ export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  
+
   if (!product) {
-    return <div>Produt Not Found</div>;
     return <Layout title="Produt Not Found">Produt Not Found</Layout>;
   }
   const addToCartHandler = async () => {
@@ -25,7 +24,6 @@ export default function ProductScreen(props) {
 
     if (data.countInStock < quantity) {
       return toast.error('Sorry. Product is out of stock');
-      
     }
 
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });

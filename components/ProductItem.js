@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
 import StarRating from '../components/StarRating';
+import Image from 'next/image';
 
 export default function ProductItem({ product, addToCartHandler }) {
   return (
     <div className="card">
       <Link href={`/product/${product.slug}`} legacyBehavior>
-        <img
+        <Image
+          width={500}
+          height={1000}
           src={product.image}
           alt={product.name}
           className="rounded shadow object-cover h-82 w-full"

@@ -48,7 +48,7 @@ export default function ProfileScreen() {
     <Layout title="Profile">
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
         <div className="hidden sm:block">
-          <img
+          <Image
             className="w-full h-full object-cover m-0 p-0"
             src="/images/image39.jpg"
             alt="image"

@@ -18,7 +18,7 @@ function CartScreen() {
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
-  const updateCartHandler = async (item, qty) => {
+  const updateCartHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       return toast.error('Sorry. Product is out of stock');
@@ -98,7 +98,7 @@ function CartScreen() {
               </li>
               <li>
                 <button
-                    onClick={() => router.push('login?redirect=/shipping')}
+                  onClick={() => router.push('login?redirect=/shipping')}
                   className="bg-black hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full"
                 >
                   Check Out

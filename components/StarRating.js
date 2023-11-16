@@ -2,10 +2,16 @@ import React from 'react';
 import ReactStars from 'react-stars';
 
 function Rating(props) {
-  const { rating, numReviews, caption } = props;
+  const { rating, numReviews } = props;
   return (
     <div>
-      <ReactStars count={5} size={24} color2={'#ffd700'} />
+      <ReactStars
+        rating={rating}
+        numReviews={numReviews}
+        count={5}
+        size={24}
+        color2={'#ffd700'}
+      />
     </div>
   );
 }

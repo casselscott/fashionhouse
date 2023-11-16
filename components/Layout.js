@@ -48,7 +48,7 @@ export default function Layout({ title, children }) {
             <div className="flex items-center">
               <Link href="/" legacyBehavior>
                 <a className="flex items-center">
-                  <img
+                  <Image
                     src="/images/logo.jpg"
                     alt="logo"
                     width={45}
