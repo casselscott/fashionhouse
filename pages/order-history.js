@@ -37,7 +37,7 @@ function OrderHistoryScreen() {
   }, []);
   return (
     <Layout title="Order History">
-      <h1 className="mb-4 text-xl">Order History</h1>
+      <h1 className="mb-4 text-xl text-black font-bold">Order History</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -71,7 +71,7 @@ function OrderHistoryScreen() {
                       ? `${order.deliveredAt.substring(0, 10)}`
                       : 'not delivered'}
                   </td>
-                  <td className=" p-5 ">
+                  <td className=" p-5  text-blue-500 hover:text-blue-700 font-bold">
                     <Link href={`/order/${order._id}`} passHref>
                       Details
                     </Link>

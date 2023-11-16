@@ -44,7 +44,7 @@ export default function LoginScreen() {
         <div className="hidden sm:block">
           <img
             className="w-full h-full object-cover m-0 p-0"
-            src="/images/image30.jpg"
+            src="/images/image41.jpg"
             alt="image"
           />
         </div>

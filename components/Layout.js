@@ -9,6 +9,8 @@ import Cookies from 'js-cookie';
 import { Menu } from '@headlessui/react';
 import DropdownLink from './DropdownLink';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { SearchIcon } from '@heroicons/react/outline';
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -24,7 +26,13 @@ export default function Layout({ title, children }) {
     dispatch({ type: 'CART_RESET' });
     signOut({ callbackUrl: '/login' });
   };
+  const [query, setQuery] = useState('');
 
+  const router = useRouter();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    router.push(`/search?query=${query}`);
+  };
   return (
     <>
       <Head>
@@ -49,6 +57,26 @@ export default function Layout({ title, children }) {
                   <span className="ml-2 text-lg font-bold">Fashion House</span>
                 </a>
               </Link>
+            </div>
+            <div className="flex justify-center">
+              <form
+                onSubmit={submitHandler}
+                className=" mx-auto hidden md:flex align-center content-center"
+              >
+                <input
+                  onChange={(e) => setQuery(e.target.value)}
+                  type="text"
+                  className="rounded-tr-none rounded-br-none p-1 text-sm text-gray-500 font-bold  focus:ring-0"
+                  placeholder="Search products"
+                />
+                <button
+                  className="rounded rounded-tl-none rounded-bl-none bg-gray-900 hover:bg-gray-700 p-1 text-sm dark:text-black"
+                  type="submit"
+                  id="button-addon2"
+                >
+                  <SearchIcon className="h-5 w-5"></SearchIcon>
+                </button>
+              </form>
             </div>
 
             <div>
@@ -86,6 +114,16 @@ export default function Layout({ title, children }) {
                         Order History
                       </DropdownLink>
                     </Menu.Item>
+                    {session.user.isAdmin && (
+                      <Menu.Item>
+                        <DropdownLink
+                          className="dropdown-link"
+                          href="/admin/dashboard"
+                        >
+                          Admin Dashboard
+                        </DropdownLink>
+                      </Menu.Item>
+                    )}
                     <Menu.Item>
                       <a
                         className="dropdown-link"
