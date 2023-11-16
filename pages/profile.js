@@ -51,7 +51,9 @@ export default function ProfileScreen() {
           <Image
             className="w-full h-full object-cover m-0 p-0"
             src="/images/image39.jpg"
-            alt="image"
+            alt=""
+            width={500}
+            height={300}
           />
         </div>
         <div className="bg-gray-800 flex flex-col justify-center w-full h-full object-cover m-0 p-0 ">

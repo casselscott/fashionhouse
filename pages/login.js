@@ -45,7 +45,9 @@ export default function LoginScreen() {
           <Image
             className="w-full h-full object-cover m-0 p-0"
             src="/images/image41.jpg"
-            alt="image"
+            alt=""
+            width={500}
+            height={300}
           />
         </div>
 
